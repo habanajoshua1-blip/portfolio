@@ -1,0 +1,237 @@
+:root {
+  --bg: #f8f8f6;
+  --surface: #efefe9;
+  --ink: #151515;
+  --muted: #4d4d4d;
+  --accent: #0055ff;
+  --border: #1f1f1f;
+  --focus: #ff4d00;
+  --shadow: 4px 4px 0 var(--border);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+  text-rendering: geometricPrecision;
+}
+
+a {
+  color: var(--ink);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--accent);
+  color: #fff;
+  border: 2px solid var(--border);
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.container {
+  width: min(68rem, 92vw);
+  margin-inline: auto;
+}
+
+.section {
+  padding: 4.5rem 0;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--bg) 90%, white 10%);
+  border-bottom: 2px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.25rem;
+}
+
+.brand {
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  display: inline-block;
+  text-decoration: none;
+  border: 2px solid transparent;
+  padding: 0.35rem 0.65rem;
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible {
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  line-height: 1;
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kicker,
+.subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.subtitle {
+  color: var(--accent);
+}
+
+.lead {
+  max-width: 56ch;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 0.75rem;
+  text-decoration: none;
+  font-weight: 700;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  padding: 0.65rem 1rem;
+  box-shadow: var(--shadow);
+  transition: transform 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+}
+
+.button:hover {
+  background: #e3e8ff;
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 var(--border);
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.framed {
+  border: 2px solid var(--border);
+  background: var(--surface);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  border: 2px solid var(--border);
+  padding: 1rem;
+  background: white;
+  box-shadow: var(--shadow);
+  transition: transform 140ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card a {
+  font-weight: 700;
+}
+
+.pill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+}
+
+.pill-list li {
+  border: 2px solid var(--border);
+  padding: 0.35rem 0.65rem;
+  background: #fff;
+}
+
+.site-footer {
+  border-top: 2px solid var(--border);
+}
+
+.footer-note {
+  color: var(--muted);
+  margin-top: 1rem;
+}
+
+@media (max-width: 58rem) {
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.65rem 0;
+  }
+
+  .nav-list {
+    gap: 0.15rem;
+  }
+}
